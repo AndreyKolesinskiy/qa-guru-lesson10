@@ -1,6 +1,9 @@
 package tests;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static io.qameta.allure.Allure.step;
 
 public class PracticeFormTests extends BaseTest {
 
@@ -20,31 +23,43 @@ public class PracticeFormTests extends BaseTest {
     String city = "Karnal";
 
     @Test
+    @DisplayName("Test for user registration")
     public void userCanFillAndSubmitTheForm() {
-        practiceFormPage
-                .openPracticeFormPage()
-                .enterFirstName(firstName)
-                .enterLastName(lastName)
-                .enterEmail(email)
-                .selectGender(gender)
-                .enterMobileNumber(mobileNumber)
-                .selectDateOfBirth(yearOfBirth, mothOfBirth, dayOfBirth)
-                .enterSubject(subject)
-                .uploadPicture(filePath)
-                .enterCurrentAddress(address)
-                .selectState(state)
-                .selectCity(city)
-                .clickSubmitButton();
 
-        practiceFormPage
-                .checkStudentName(firstName + " " + lastName)
-                .checkStudentEmail(email)
-                .checkStudentGender(gender)
-                .checkMobileNumber(mobileNumber)
-                .checkDateOfBirth(dayOfBirth + " " + mothOfBirth + "," + yearOfBirth)
-                .checkSubjects(subject)
-                .checkPicture(pictureName)
-                .checkAddress(address)
-                .checkStateAndCity(state + " " + city);
+        step("Open practice form page", () ->{
+            practiceFormPage.openPracticeFormPage();
+        });
+
+        step("Fill form with data", () ->{
+            practiceFormPage
+                    .enterFirstName(firstName)
+                    .enterLastName(lastName)
+                    .enterEmail(email)
+                    .selectGender(gender)
+                    .enterMobileNumber(mobileNumber)
+                    .selectDateOfBirth(yearOfBirth, mothOfBirth, dayOfBirth)
+                    .enterSubject(subject)
+                    .uploadPicture(filePath)
+                    .enterCurrentAddress(address)
+                    .selectState(state)
+                    .selectCity(city);
+        });
+
+        step("Submit form", () ->{
+            practiceFormPage.clickSubmitButton();
+        });
+
+        step("Verify displayed data", () ->{
+            practiceFormPage
+                    .checkStudentName(firstName + " " + lastName)
+                    .checkStudentEmail(email)
+                    .checkStudentGender(gender)
+                    .checkMobileNumber(mobileNumber)
+                    .checkDateOfBirth(dayOfBirth + " " + mothOfBirth + "," + yearOfBirth)
+                    .checkSubjects(subject)
+                    .checkPicture(pictureName)
+                    .checkAddress(address)
+                    .checkStateAndCity(state + " " + city);
+        });
     }
 }
