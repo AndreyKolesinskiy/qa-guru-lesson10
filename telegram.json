@@ -1,0 +1,41 @@
+{
+  "app": {
+    "bot": {
+      "token": "1809766727:AAHNqEXi5R5Qphd292V1QZa16X8V5eJRVvc",
+      "chat": "-559570875",
+      "replyTo": ""
+    },
+    "base": {
+      "lang": "ru",
+      "messenger": "telegram",
+      "allureFolder": "./build/reports/allure-report/",
+      "mattermostUrl": "",
+      "chart": true,
+      "chartName": "",
+      "project": ""
+    },
+    "mail": {
+      "host": "",
+      "port": "",
+      "username": "",
+      "password": "",
+      "enableSSL": false,
+      "from": "",
+      "recipient": ""
+    },
+    "proxy": {
+      "host": "",
+      "port": 0,
+      "username": "",
+      "password": ""
+    },
+    "skype": {
+      "appId": "",
+      "appSecret": "",
+      "serviceUrl": "",
+      "conversationId": "",
+      "botId": "",
+      "botName": ""
+    }
+  }
+}
